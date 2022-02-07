@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
+</head>
+<style>
+    /*todo media query*/
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    #navbar {
+        height: 100px;
+        width: 100%;
+        background-color: #be3144;
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        /*margin: 0 0 0 0;*/
+    }
+
+    .navbar-link {
+        font-size: 1.5em;
+        /*border: 2px solid white;*/
+        color: white;
+        padding: 20px;
+        text-decoration: none;
+    }
+
+    #welcome-section {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+        /*border: 2px solid red;*/
+    }
+
+    #welcome-section-h1 {
+        color: #f0f0f0;
+        font-weight: 700;
+        font-size: 6rem;
+        margin: 0;
+        /*border: 2px solid white;*/
+    }
+
+    #welcome-section-h2 {
+        color: #be3144;
+        /*border: 2px solid white;*/
+    }
+
+    #projects {
+        background-color: rgb(72, 85, 122);
+        padding: 100px 10% 100px 10%;
+    }
+
+    #projects-header {
+        height: 100px;
+        margin: 0 20% 100px 20%;
+        text-align: center;
+        color: #f0f0f0;
+        font-size: 2.5rem;
+        font-weight: 700;
+        border-bottom: 4px solid white;
+        /*background-color: white;*/
+    }
+
+    #projects-grid {
+        display: grid;
+        height: 1000px;
+        margin: auto;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 50px;
+        grid-row-gap: 70px;
+    }
+
+    .project-tile {
+        display: block;
+        /*height: 100%;*/
+        /*width: 20em;*/
+        /*height: 20em;*/
+        /*background-color: darkgreen;*/
+    }
+
+    .project-img {
+        margin: 0;
+        padding: 0;
+        height: 80%;
+        object-fit: cover;
+        width: 100%;
+        vertical-align: text-bottom;
+    }
+
+    .project-title {
+        margin: 0;
+        padding: 0;
+        height: 20%;
+        background-color: #303841;
+        color: white;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    #projects-link {
+        height: 80px;
+        width: 16%;
+        margin: 100px auto 0 auto;
+        font-size: 1.5em;
+        text-align: center;
+        line-height: 50px;
+        background-color: #303841;
+        color: white;
+    }
+
+    #contact {
+        height: 600px;
+        padding: 100px 25% 100px 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(50, 56, 64);
+        color: white;
+    }
+
+    #contact-h1 {
+        text-align: center;
+        font-size: 3em;
+        margin: 0;
+        /*border: 2px solid white;*/
+    }
+
+    #contact-h3 {
+        text-align: center;
+        margin-bottom: 50px;
+        /*border: 2px solid white;*/
+    }
+
+    #contact-links {
+        height: 160px;
+        width: 100%;
+        display: grid;
+        grid-template-areas:
+                "facebook github twitter email"
+                "phone phone phone phone";
+        /*border: 2px solid white;*/
+    }
+
+    .contact-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /*border: 2px solid white;*/
+    }
+
+    .logo {
+        font-size: x-large;
+    }
+
+    .logo-desc {
+        font-size: 1.6rem;
+        margin-left: 10px;
+    }
+
+    #phone {
+        grid-area: phone;
+    }
+
+    #footer {
+        height: 150px;
+        border-top: 4px solid #be3144;
+        background-color: #303841;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+</style>
+<body>
+<div id="navbar">
+    <a class="navbar-link" href="#welcome-section">About</a>
+    <a class="navbar-link" href="#projects">Work</a>
+    <a class="navbar-link" href="#contact">Contact</a>
+</div>
+<div id="welcome-section">
+    <h1 id="welcome-section-h1">Hey I am Mimic</h1>
+    <h2 id="welcome-section-h2">a web developer</h2>
+</div>
+<div id="projects">
+    <div id="projects-header">These are some of my projects</div>
+    <div id="projects-grid">
+        <div class="project-tile">
+            <img class="project-img" alt="tribute-page" src="img/tribute-page.jpeg"/>
+            <div class="project-title">tribute page</div>
+        </div>
+        <div class="project-tile">
+            <img class="project-img" alt="random-quote-machine" src="img/random-quote-machine.png"/>
+            <div class="project-title">random quote machine</div>
+        </div>
+        <div class="project-tile">
+            <img class="project-img" alt="javascript-calculator" src="img/javascript-calculator.png"/>
+            <div class="project-title">javascript calculator</div>
+        </div>
+        <div class="project-tile">
+            <img class="project-img" alt="map-data-across-the-globe" src="img/map-data-across-the-globe.jpeg"/>
+            <div class="project-title">map data across the globe</div>
+        </div>
+        <div class="project-tile">
+            <img class="project-img" alt="wikipedia-viewer" src="img/wikipedia-viewer.png"/>
+            <div class="project-title">wikipedia viewer</div>
+        </div>
+        <div class="project-tile">
+            <img class="project-img" alt="tic-tac-toe-game" src="img/tic-tac-toe-game.png"/>
+            <div class="project-title">tic tac toe game</div>
+        </div>
+    </div>
+    <div id="projects-link">Show all ></div>
+</div>
+<div id="contact">
+    <h1 id="contact-h1">Let's work together...</h1>
+    <h3 id="contact-h3">How do you take your coffee?</h3>
+    <div id="contact-links">
+        <a id="profile-link" class="contact-link">
+            <div class="logo fab fa-facebook-square"></div>
+            <div class="logo-desc">Facebook</div>
+        </a>
+        <a class="contact-link">
+            <div class="logo btn fab fa-github"></div>
+            <div class="logo-desc">Github</div>
+        </a>
+        <a class="contact-link">
+            <div class="logo fab fa-twitter"></div>
+            <div class="logo-desc">Twitter</div>
+        </a>
+        <a class="contact-link">
+            <div class="logo fas fa-at"></div>
+            <div class="logo-desc">Send a mail</div>
+        </a>
+        <a id="phone" class="contact-link">
+            <div class="logo fas fa-mobile-alt"></div>
+            <div class="logo-desc">Call me</div>
+        </a>
+    </div>
+</div>
+<footer id="footer">
+    <div>**This is just a fake portfolio. All the projects and contact details given are not real.</div>
+    <div>© Created for freeCodeCamp</div>
+</footer>
+</body>
+</html>
