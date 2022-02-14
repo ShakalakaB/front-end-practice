@@ -2,88 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>test</title>
 </head>
 <style>
-    /* Base reset */
-    * {
+    #projects-grid {
+        display: grid;
+        margin: auto;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 50px;
+        grid-row-gap: 70px;
+    }
+    .project-tile {
+        display: block;
+    }
+
+    .project-img {
         margin: 0;
         padding: 0;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+        vertical-align: text-bottom;
     }
 
-    /* box-sizing and font sizing */
-    *,
-    *::before,
-    *::after {
-        box-sizing: inherit;
+    #img-container {
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*border: 2px solid black;*/
     }
-
-    html {
-        box-sizing: border-box;
-
-        /* Set font size for easy rem calculations
-         * default document font size = 16px, 1rem = 16px, 100% = 16px
-         * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
-        */
-        /*font-size: 62.5%;*/
-        font-size: 50%;
-        scroll-behavior: smooth;
-    }
-
-    /* A few media query to set some font sizes at different screen sizes.
-     * This helps automate a bit of responsiveness.
-     * The trick is to use the rem unit for size values, margin and padding.
-     * Because rem is relative to the document font size
-     * when we scale up or down the font size on the document
-     * it will affect all properties using rem units for the values.
-    */
-
-    /* I am using the em unit for breakpoints
-     * The calculation is the following
-     * screen size divided by browser base font size
-     * As an example: a breakpoint at 980px
-     * 980px / 16px = 61.25em
-    */
-
-    /* 1200px / 16px = 75em */
-    @media (max-width: 70em) {
-        html {
-            font-size: 60%;
-            border: 4px solid black;
-        }
-    }
-
-    /* 980px / 16px = 61.25em */
-    @media (max-width: 61.25em) {
-        html {
-            font-size: 58%;
-        }
-    }
-
-    /* 460px / 16px = 28.75em */
-    @media (max-width: 28.75em) {
-        html {
-            font-size: 55%;
-        }
-    }
-
-    /*#grand {*/
-    /*    font-size: 10%;*/
-    /*}*/
-
-    #parent {
-        font-size: 3em;
-    }
-
-    #child {
-        font-size: 2em;
-    }
-
 </style>
 <body>
-<div id="grand">hello
-    <div id="parent">hello
-        <div id="child">hello</div>
+<div id="img-container">
+    <img id="img" alt="tribute-page" src="fcc-projects/img/tribute-page.jpeg"/>
+    <div id="img-container-text">tribute page</div>
+</div>
+<div id="projects-grid">
+    <div class="project-tile">
+        <img class="project-img" alt="tribute-page" src="fcc-projects/img/tribute-page.jpeg"/>
+        <div class="project-title">tribute page</div>
+    </div>
+    <div class="project-tile">
+        <img class="project-img" alt="random-quote-machine" src="fcc-projects/img/tribute-page.jpeg"/>
+        <div class="project-title">random quote machine</div>
+    </div>
+    <div class="project-tile">
+        <img class="project-img" alt="javascript-calculator" src="fcc-projects/img/tribute-page.jpeg"/>
+        <div class="project-title">javascript calculator</div>
+    </div>
+    <div class="project-tile">
+        <img class="project-img" alt="map-data-across-the-globe" src="fcc-projects/img/tribute-page.jpeg"/>
+        <div class="project-title">map data across the globe</div>
+    </div>
+    <div class="project-tile">
+        <img class="project-img" alt="wikipedia-viewer" src="fcc-projects/img/tribute-page.jpeg"/>
+        <div class="project-title">wikipedia viewer</div>
+    </div>
+    <div class="project-tile">
+        <img class="project-img" alt="tic-tac-toe-game" src="fcc-projects/img/tribute-page.jpeg"/>
+        <div class="project-title">tic tac toe game</div>
     </div>
 </div>
 </body>

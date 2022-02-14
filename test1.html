@@ -1,10 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>FCC-web-practice: personal portfolio</title>
+    <!--    Project demand description: https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage-->
+    <!--    Model example url: https://codepen.io/freeCodeCamp/full/zNBOYG-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet"/>
 </head>
+<style>
+    /*todo media query*/
+    :root {
+        --main-white: #f0f0f0;
+        --main-red: #be3144;
+        --main-blue: #45567d;
+        --main-gray: #303841;
+    }
+
+    html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--main-white);
+    }
+
+    h1,
+    h2 {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 6rem;
+    }
+
+    h2 {
+        font-size: 4.2rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: var(--main-red);
+    }
+
+    #navbar-list {
+        display: flex;
+        margin-right: 2rem;
+    }
+
+    #navbar-list a {
+        display: block;
+        font-size: 2.2rem;
+        padding: 2rem;
+    }
+
+    #welcome-section {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--main-gray);
+    }
+
+    #welcome-section-p {
+        color: var(--main-red);
+        font-weight: 300;
+        font-size: 3rem;
+        font-style: italic;
+    }
+
+    #projects {
+        background-color: var(--main-blue);
+        padding: 10rem 2rem;
+    }
+
+    #projects-header {
+        max-width: 640px;
+        margin: 0 auto 6rem auto;
+        text-align: center;
+        color: #f0f0f0;
+        border-bottom: 4px solid white;
+    }
+
+    #projects-grid {
+        display: grid;
+        margin: auto;
+        max-width: 1280px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 4rem;
+    }
+
+    .project-img {
+        /*margin: 0;*/
+        /*padding: 0;*/
+        /*height: 80%;*/
+        height: calc(100% - 6.8rem);
+        object-fit: cover;
+        vertical-align: text-bottom;
+    }
+
+    .project-title {
+        margin: 0;
+        padding: 0;
+        height: 20%;
+        background-color: #303841;
+        color: white;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    #show-all {
+        height: 80px;
+        width: 16%;
+        margin: 100px auto 0 auto;
+        font-size: 1.5em;
+        text-align: center;
+        line-height: 50px;
+        background-color: #303841;
+        color: white;
+    }
+
+    #contact {
+        height: 600px;
+        padding: 100px 25% 100px 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(50, 56, 64);
+        color: white;
+    }
+
+    #contact-h1 {
+        text-align: center;
+        font-size: 3em;
+        margin: 0;
+        /*border: 2px solid white;*/
+    }
+
+    #contact-p {
+        text-align: center;
+        margin-bottom: 50px;
+        /*border: 2px solid white;*/
+    }
+
+    #contact-links {
+        height: 160px;
+        width: 100%;
+        display: grid;
+        grid-template-areas:
+                "facebook github twitter email"
+                "phone phone phone phone";
+        /*border: 2px solid white;*/
+    }
+
+    .contact-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /*border: 2px solid white;*/
+    }
+
+    .logo {
+        font-size: x-large;
+    }
+
+    .logo-desc {
+        font-size: 1.6rem;
+        margin-left: 10px;
+    }
+
+    #phone {
+        grid-area: phone;
+    }
+
+    #footer {
+        height: 150px;
+        border-top: 4px solid #be3144;
+        background-color: #303841;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+</style>
 <body>
-$END$
+<nav id="navbar">
+    <ul id="navbar-list">
+        <li>
+            <a class="navbar-link" href="#welcome-section">About</a>
+        </li>
+        <li>
+            <a class="navbar-link" href="#projects">Work</a>
+        </li>
+        <li>
+            <a class="navbar-link" href="#contact">Contact</a>
+        </li>
+    </ul>
+</nav>
+<div id="welcome-section">
+    <h1 id="welcome-section-h1">Hey I am Mimic</h1>
+    <p id="welcome-section-p">a web developer</p>
+</div>
+<div id="projects">
+    <h2 id="projects-header">These are some of my projects</h2>
+    <div id="projects-grid">
+        <a class="project-tile" href="https://codepen.io/freeCodeCamp/full/zNqgVx" target="_blank">
+<!--            <img class="project-img" alt="tribute-page" src="img/tribute-page.jpeg"/>-->
+            <div class="project-img"></div>
+            <p class="project-title">
+                <span class="code">&lt;</span>
+                Tribute Page
+                <span class="code">&#47;&gt;</span>
+            </p>
+        </a>
+        <a class="project-tile" href="https://codepen.io/freeCodeCamp/full/qRZeGZ" target="_blank">
+<!--            <img class="project-img" alt="random-quote-machine" src="img/random-quote-machine.png"/>-->
+            <div class="project-img"></div>
+            <p class="project-title">
+                <span class="code">&lt;</span>
+                Random Quote Machine
+                <span class="code">&#47;&gt;</span>
+            </p>
+        </a>
+        <a class="project-tile" href="https://codepen.io/freeCodeCamp/full/wgGVVX" target="_blank">
+<!--            <img class="project-img" alt="javascript-calculator" src="img/javascript-calculator.png"/>-->
+            <div class="project-img"></div>
+            <p class="project-title">
+                <span class="code">&lt;</span>
+                Javascript Calculator
+                <span class="code">&#47;&gt;</span>
+            </p>
+        </a>
+        <a class="project-tile" href="https://codepen.io/freeCodeCamp/full/mVEJag" target="_blank">
+<!--            <img class="project-img" alt="map-data-across-the-globe" src="img/map-data-across-the-globe.jpeg"/>-->
+            <div class="project-img"></div>
+            <p class="project-title">
+                <span class="code">&lt;</span>
+                Map Data Across the Globe
+                <span class="code">&#47;&gt;</span>
+            </p>
+        </a>
+        <a class="project-tile" href="https://codepen.io/freeCodeCamp/full/wGqEga" target="_blank">
+<!--            <img class="project-img" alt="wikipedia-viewer" src="img/wikipedia-viewer.png"/>-->
+            <div class="project-img"></div>
+            <p class="project-title">
+                <span class="code">&lt;</span>
+                Wikipedia Viewer
+                <span class="code">&#47;&gt;</span>
+            </p>
+        </a>
+        <a class="project-tile" href="https://codepen.io/freeCodeCamp/full/KzXQgy" target="_blank">
+<!--            <img class="project-img" alt="tic-tac-toe-game" src="img/tic-tac-toe-game.png"/>-->
+            <div class="project-img"></div>
+            <p class="project-title">
+                <span class="code">&lt;</span>
+                Tic Tac Toe Game
+                <span class="code">&#47;&gt;</span>
+            </p>
+        </a>
+    </div>
+    <div id="show-all">Show all ></div>
+</div>
+<div id="contact">
+    <h1 id="contact-h1">Let's work together...</h1>
+    <h3 id="contact-p">How do you take your coffee?</h3>
+    <div id="contact-links">
+        <a id="profile-link" class="contact-link">
+            <div class="logo fab fa-facebook-square"></div>
+            <div class="logo-desc">Facebook</div>
+        </a>
+        <a class="contact-link">
+            <div class="logo btn fab fa-github"></div>
+            <div class="logo-desc">Github</div>
+        </a>
+        <a class="contact-link">
+            <div class="logo fab fa-twitter"></div>
+            <div class="logo-desc">Twitter</div>
+        </a>
+        <a class="contact-link">
+            <div class="logo fas fa-at"></div>
+            <div class="logo-desc">Send a mail</div>
+        </a>
+        <a id="phone" class="contact-link">
+            <div class="logo fas fa-mobile-alt"></div>
+            <div class="logo-desc">Call me</div>
+        </a>
+    </div>
+</div>
+<footer id="footer">
+    <div>**This is just a fake portfolio. All the projects and contact details given are not real.</div>
+    <div>© Created for freeCodeCamp</div>
+</footer>
 </body>
 </html>
