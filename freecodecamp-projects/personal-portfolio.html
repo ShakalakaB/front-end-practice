@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FCC-web-practice: personal portfolio</title>
 <!--    Project demand description: https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage-->
 <!--    Model example url: https://codepen.io/freeCodeCamp/full/zNBOYG-->
@@ -23,6 +24,27 @@
         font-size: 62.5%;
         box-sizing: border-box;
         scroll-behavior: smooth;
+    }
+
+    /* 1200px / 16px = 75em */
+    @media (max-width: 75em) {
+        html {
+            font-size: 60%;
+        }
+    }
+
+    /* 980px / 16px = 61.25em */
+    @media (max-width: 61.25em) {
+        html {
+            font-size: 58%;
+        }
+    }
+
+    /* 460px / 16px = 28.75em */
+    @media (max-width: 28.75em) {
+        html {
+            font-size: 55%;
+        }
     }
 
     * {
@@ -216,6 +238,13 @@
         border-top: 4px solid var(--main-red);
         background-color: var(--main-gray);
         padding: 4rem;
+    }
+
+    @media (max-width: 28.75em) {
+        #footer {
+            flex-direction: column;
+            text-align: center;
+        }
     }
 </style>
 <body>
