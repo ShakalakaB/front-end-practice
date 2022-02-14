@@ -105,6 +105,7 @@
         top: 0;
         width: 100%;
         background-color: var(--main-red);
+        z-index: 10;
     }
 
     #navbar-list {
@@ -165,7 +166,6 @@
     .project-title {
         font-size: 2rem;
         padding: 2rem 0.5rem;
-        /*height: 20%;*/
         max-height: 6.8rem;
         background-color: var(--main-gray);
     }
@@ -200,7 +200,7 @@
     }
 
     #contact {
-        padding: 12rem 12rem;
+        padding: 4rem 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -221,6 +221,13 @@
         margin-top: 4rem;
     }
 
+    @media (max-width: 28.75em) {
+        #contact-links {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
     .contact-link {
         font-size: x-large;
         transition: transform 0.3s ease-out;
@@ -237,7 +244,11 @@
         align-items: center;
         border-top: 4px solid var(--main-red);
         background-color: var(--main-gray);
-        padding: 4rem;
+        padding: 2rem;
+    }
+
+    footer > p {
+        margin: 2rem;
     }
 
     @media (max-width: 28.75em) {
@@ -348,8 +359,8 @@
     </div>
 </div>
 <footer id="footer">
-    <div>**This is just a fake portfolio. All the projects and contact details given are not real.</div>
-    <div>© Created for freeCodeCamp</div>
+    <p>**This is just a fake portfolio. All the projects and contact details given are not real.</p>
+    <p>© Created for freeCodeCamp</p>
 </footer>
 </body>
 </html>
