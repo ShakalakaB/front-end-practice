@@ -132,6 +132,7 @@
         max-width: 1280px;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         grid-gap: 4rem;
+        margin-bottom: 6rem;
     }
 
     .project-img {
@@ -157,78 +158,64 @@
     }
 
     #show-all {
-        width: 16%;
-        margin: 100px auto 0 auto;
-        font-size: 1.5em;
-        text-align: center;
-        line-height: 50px;
+        font-size: 2.5rem;
+        padding: 1rem 2rem;
         background-color: var(--main-gray);
+        transition: background 0.3s ease-out
+    }
+
+    #show-all:hover {
+        background-color: var(--main-red);
+    }
+
+    #show-all > i {
+        transform: translateX(0px);
+        transition: transform 0.3s ease-out;
+    }
+
+    #show-all:hover > i {
+        transform: translateX(2px);
     }
 
     #contact {
-        height: 600px;
-        padding: 100px 25% 100px 25%;
+        padding: 12rem 12rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background-color: rgb(50, 56, 64);
-        color: white;
-    }
-
-    #contact-h1 {
-        text-align: center;
-        font-size: 3em;
-        margin: 0;
-        /*border: 2px solid white;*/
+        background-color: var(--main-gray);
     }
 
     #contact-p {
         text-align: center;
-        margin-bottom: 50px;
-        /*border: 2px solid white;*/
+        font-style: italic;
     }
 
     #contact-links {
-        height: 160px;
-        width: 100%;
-        display: grid;
-        grid-template-areas:
-                "facebook github twitter email"
-                "phone phone phone phone";
-        /*border: 2px solid white;*/
-    }
-
-    .contact-link {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
-        /*border: 2px solid white;*/
+        flex-wrap: wrap;
+        gap: 3rem;
+        margin-top: 4rem;
     }
 
-    .logo {
+    .contact-link {
         font-size: x-large;
+        transition: transform 0.3s ease-out;
     }
 
-    .logo-desc {
-        font-size: 1.6rem;
-        margin-left: 10px;
-    }
-
-    #phone {
-        grid-area: phone;
+    .contact-link:hover {
+        transform:translateY(8px);
     }
 
     #footer {
-        height: 150px;
-        border-top: 4px solid #be3144;
-        background-color: #303841;
-        color: white;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        font-size: 1.2rem;
+        border-top: 4px solid var(--main-red);
+        background-color: var(--main-gray);
+        padding: 4rem;
     }
 </style>
 <body>
