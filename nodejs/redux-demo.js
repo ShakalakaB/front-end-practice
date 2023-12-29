@@ -12,11 +12,11 @@ const counterReducer = (state = {counter: 0}, action) => {
 
 const store = redux.createStore(counterReducer);
 
-const counterSubscriber = () => {
+const counterListener = () => {
     const latestState = store.getState();
     console.log(latestState);
 };
 
-store.subscribe(counterSubscriber);
+store.subscribe(counterListener);
 
 store.dispatch({ type: "increment"});
